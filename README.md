@@ -1,5 +1,7 @@
 To run the server on your localhost
 
+you should have `python virtualenv` installed on you `linux` environment
+
 clone this repo in your computer , cd into that directory.
 
 enable the virtual environmrnt with 
