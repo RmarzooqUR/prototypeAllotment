@@ -1,8 +1,24 @@
 {% block content %}
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %} {{ form.as_p }}
+    <p>Upload you csv file</p>
     <button type="submit">Upload</button>
 </form>
+{% if messages %}
+    {% for message in messages %}
+    <script {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+        alert(' {{ message }} ')
+    </script>
+    {% endfor %}
+{% endif %}
+
+{% if messages %}
+<!-- <ul class="messages">
+    {% for message in messages %}
+    <li >{{ message }}</li>
+    {% endfor %}
+</ul> -->
+{% endif %}
 
 <p><a href="{% url 'fileUploads:index' %}">Return to home</a></p>
 {% endblock %}
