@@ -5,14 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Home Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- <script src="main.js"></script> -->
 </head>
+<style>
+    a{
+        text-decoration: none;
+        color: #000000
+    }
+    body{
+        color: white;
+        height: 100%;
+        background-image: url("/media/back3.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    body,html{
+        height: 100%;
+    }
+    .cr{
+        text-align: center;
+        /* margin-top: 15%; */
+    }
+    .crr{
+        display: inline-block;
+    }
+</style>
 <body>
-    <h1>Welcome</h1>
-    <a href="{url '/app/template_login.html'}">Provost Login</a>
-    <a href="{url '/app/template_login.html'}">Warden Login</a>
-    <a href="{url '/app/template_login.html'}">Student Login</a>
-
+    <div class="container cr">
+        <div class="container-fluid crr" style="margin-top :10%">
+            <div class="cr">
+                <img src="/media/favicon.png" alt="logo" class="img-responsive crr">
+            </div>
+            <h1>Welcome</h1>
+            <button>
+                <a href="{url '/app/template_login.html'}">Provost Login</a>
+            </button>
+            <button>
+                <a href="{url '/app/template_login.html'}">Warden Login</a>
+            </button>
+            <button>
+                <a href="{url '/app/template_login.html'}">Student Login</a>
+            </button>
+        </div>
+    </div>
 </body>
 </html>
