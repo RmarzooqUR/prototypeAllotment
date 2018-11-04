@@ -20,12 +20,13 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('',RedirectView.as_view(url='/accounts/login')),
+    path('',RedirectView.as_view(url='/homepage/')),
     path('admin/', admin.site.urls),
     path('accounts/',include('django.contrib.auth.urls')),
     # path('polls/', include('polls.urls')),
     path('fileUploads/',include('fileUploads.urls')),
-    path('homepage/',include('homepage.urls'))
+    path('homepage/',include('homepage.urls')),
+    path('dashBoardStudent',include('dashBoardStudent.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

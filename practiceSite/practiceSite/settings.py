@@ -35,6 +35,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'homepage.apps.HomepageConfig',
     'fileUploads.apps.FileuploadsConfig',
+    'dashBoardStudent.apps.DashboardstudentConfig',
     # 'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
