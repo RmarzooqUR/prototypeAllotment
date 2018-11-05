@@ -15,12 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf.urls import url,include
 from django.views.generic import RedirectView
+from dashBoardStudent import views
 
 urlpatterns = [
-    path('',RedirectView.as_view(url='/accounts/login')),
-    path('admin/', admin.site.urls),
-    path('accounts/',include('django.contrib.auth.urls')),
+    #path('',RedirectView.as_view(url='/accounts/login')),
+    #path('admin/', admin.site.urls),
+    #path('accounts/',include('django.contrib.auth.urls')),
     # path('polls/', include('polls.urls')),
-    path('fileUploads/',include('fileUploads.urls'))
+    #path('fileUploads/',include('fileUploads.urls'))
+
+    #url(r'^dashBoardStudent/$', include(dashBoardStudent.urls))
+     path('admin/', admin.site.urls),
+     path('dashBoardStudent/', include('dashBoardStudent.urls')),
+     path('', views.index, name = 'index'),
 ]
