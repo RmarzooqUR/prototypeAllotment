@@ -42,15 +42,15 @@
                 <img src="/media/favicon.png" alt="logo" class="img-responsive crr">
             </div>
             <h1>Welcome</h1>
-            <button>
-                <a href="{url '/app/template_login.html'}">Provost Login</a>
-            </button>
-            <button>
-                <a href="{url '/app/template_login.html'}">Warden Login</a>
-            </button>
-            <button>
-                <a href="{url '/app/template_login.html'}">Student Login</a>
-            </button>
+                <a href="{url '/app/template_login.html'}">
+                    <button>Provost Login</button>>
+                </a>
+                <a href="{url '/app/template_login.html'}">
+                    <button>Warden Login</button>
+                </a>
+                <a href="{% url 'dashBoardStudent:login_view' %}">
+                    <button>Student Login</button>>
+                </a>
         </div>
     </div>
 </body>

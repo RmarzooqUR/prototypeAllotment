@@ -1,5 +1,6 @@
 from django.shortcuts import render
-<<<<<<< HEAD
+from django.views import generic
+# Create your views here.
 
 
 from django.contrib.auth import authenticate, login, logout
@@ -8,6 +9,12 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
+
+class IndexView(generic.TemplateView):
+    template_name = 'dashBoardStudent/dashboard.html'
+
+
 def index(request):
     return render(request,"dashBoardStudent/index.html",{})
 
@@ -34,10 +41,4 @@ def login_view(request):
             return HttpResponse("Invalid Login Attempt")
     else:  
         return render(request, "dashBoardStudent/login.html", {}) 
-=======
-from django.views import generic
-# Create your views here.
 
-class IndexView(generic.TemplateView):
-    template_name = 'dashBoardStudent/index.html'
->>>>>>> f87c35cdfb41f00f791689f123adeff759519f8f
