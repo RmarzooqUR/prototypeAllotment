@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls import url,include
 from django.views.generic import RedirectView
+<<<<<<< HEAD
 from dashBoardStudent import views
 
 urlpatterns = [
@@ -30,4 +31,19 @@ urlpatterns = [
      path('admin/', admin.site.urls),
      path('dashBoardStudent/', include('dashBoardStudent.urls')),
      path('', views.index, name = 'index'),
+=======
+from django.conf.urls.static import static
+from django.conf import settings
+
+urlpatterns = [
+    path('',RedirectView.as_view(url='/homepage/')),
+    path('admin/', admin.site.urls),
+    path('accounts/',include('django.contrib.auth.urls')),
+    # path('polls/', include('polls.urls')),
+    path('fileUploads/',include('fileUploads.urls')),
+    path('homepage/',include('homepage.urls')),
+    path('dashBoardStudent',include('dashBoardStudent.urls'))
+>>>>>>> f87c35cdfb41f00f791689f123adeff759519f8f
 ]
+
+urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

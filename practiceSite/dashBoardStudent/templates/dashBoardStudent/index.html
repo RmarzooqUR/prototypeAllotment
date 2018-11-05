@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'dashBoardStudent/styles.css' %}" />
+    <!-- <script src="main.js"></script> -->
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Your Allotment</a>
+        <a href="#">Update Profile</a>
+        <a href="#">Grievances</a>
+        <a href="#">Logout</a>
+    </div>
+    
+    <div id="main">
+        <!-- <h2>Sidenav Push Example</h2> -->
+        <!-- <p>Click on the element below to open the side navigation menu, and push this content to the right.</p> -->
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    </div>
+    
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+
+</body>
+</html>
