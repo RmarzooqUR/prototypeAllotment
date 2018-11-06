@@ -1,8 +1,11 @@
-# from django.urls import path
-# from . import views
+from django.urls import path
+from . import views
 
-# app_name = 'dashBoardStudent'
+app_name = 'dashBoardProvost'
 
-# urlpatterns = [
-#     path('', views.IndexView.as_view(), name='index')
-# ]
+urlpatterns = [
+    path('', views.IndexView.as_view(), name='provostIndex'),
+    path('upload/', views.modelFormUpload, name='upload'),
+    path('login/', views.login_view, name='login_view'),
+    path('logged_in/', views.logged_in, name='logged_in')
+]

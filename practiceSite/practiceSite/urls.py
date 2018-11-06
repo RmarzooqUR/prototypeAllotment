@@ -32,6 +32,7 @@ urlpatterns = [
     #url(r'^dashBoardStudent/$', include(dashBoardStudent.urls))
     path('admin/', admin.site.urls),
     path('dashBoardStudent/', include('dashBoardStudent.urls')),
+    path('dashBoardProvost/', include('dashBoardProvost.urls')),
     path('', RedirectView.as_view(url='/homepage/')),
     # path('accounts/', include('django.contrib.auth.urls')),
     # path('polls/', include('polls.urls')),

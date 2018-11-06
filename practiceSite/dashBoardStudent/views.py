@@ -34,7 +34,7 @@ def login_view(request):
             if user.is_active:
                 login(request,user)
 
-                return HttpResponse("Successfully Logged in")
+                return HttpResponseRedirect('/dashBoardStudent/')
             else:
                 return HttpResponse("Your account is not active")
         else:

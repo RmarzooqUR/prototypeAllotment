@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'dashBoardProvost.apps.DashboardprovostConfig',
     'homepage.apps.HomepageConfig',
     'fileUploads.apps.FileuploadsConfig',
     'dashBoardStudent.apps.DashboardstudentConfig',
