@@ -1,17 +1,47 @@
 <html>
-    <head>
-        <title>Login Page</title>
-    </head>
+
+<head>
+    <title>Login Page</title>
+</head>
+<style>
+    .loginBox{
+            width: 250px;
+            height: 300px;
+            margin: 100px auto;
+            box-shadow: 0px 2px 5px 5px #888888;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .topic{
+            background-color:steelblue;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+
     <body>
-        <form method='POST'>
-            {% csrf_token %}
-            <label for="username">Username :</label>
-            <input type="text" name="username">
-
-            <label for="password"> Password : </label>
-            <input type="password" name="password">
-
-            <input type="submit" value="Login">
-        </form>
+        <div class="loginBox container-fluid">
+            <div class="container-fluid topic">
+                <h3>Provost's Login:</h3>
+            </div>
+            <hr>
+            <form method='POST'>
+                {% csrf_token %}
+                <p>
+                    <label for="username">Username :</label>
+                    <input type="text" name="username">
+                </p>
+                <p>
+                    <label for="password"> Password : </label>
+                    <input type="password" name="password">
+                </p>
+                <hr>
+                <p>
+                    <input type="submit" value="Login">
+                </p>
+            </form>
+        </div>
     </body>
+
 </html>

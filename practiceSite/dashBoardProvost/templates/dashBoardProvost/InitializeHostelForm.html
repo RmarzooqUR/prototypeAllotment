@@ -17,7 +17,6 @@
         <a href="{% url 'dashBoardProvost:provostIndex' %}">Profile</a>
         <a href="{% url 'dashBoardProvost:upload' %}">Upload CSV</a>
         <a href="{% url 'dashBoardProvost:InitializeHostelForm' %}">Initialize your hostels</a>
-        <!-- <a href="#">Update Profile</a> -->
         <a href="#">Grievances</a>
         <a href="#">Logout</a>
     </div>
@@ -28,6 +27,18 @@
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Provost</span>
         <div class="container-fluid" id="content-areas">
             <!-- Hello -->
+            <form action="" enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Initialize</button>
+                {% if messages %}
+                {% for message in messages %}
+                <script {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                    alert(' {{ message }} ')
+                </script>
+                {% endfor %}
+                {% endif %}
+            </form>
         </div>
     </div>
 
