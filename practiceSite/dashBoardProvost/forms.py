@@ -16,4 +16,3 @@ class InitializeHostelForm(forms.Form):
     numberOfRooms = forms.IntegerField()
     seater = forms.IntegerField()
 
-    

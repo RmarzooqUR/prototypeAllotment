@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {% load static %}
     <link rel="stylesheet" type="text/css" media="screen" href="{% static 'dashBoardProvost/styles.css' %}" />
     <!-- <script src="main.js"></script> -->
@@ -15,9 +18,10 @@
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="{% url 'dashBoardProvost:provostIndex' %}">Profile</a>
+        <a href="{% url 'dashBoardProvost:upload' %}">Upload CSV</a>
         <a href="{% url 'dashBoardProvost:InitializeHostelForm' %}">Initialize your hostels</a>
-        <a href="#">Upload CSV</a>
-        <a href="#">Update Profile</a>
+        <a href="{% url 'dashBoardProvost:Allotment' %}">Allot Rooms</a>
+        <!-- <a href="#">Update Profile</a> -->
         <a href="#">Grievances</a>
         <a href="#">Logout</a>
     </div>
@@ -32,10 +36,11 @@
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %} 
                 {{ form.as_p }}
-                <p>Upload you csv file</p>
+                <p>Upload you .csv file</p>
+                <p>Make sure the name of the file is 'filename.csv'</p>
                 <button type="submit">Upload</button>
                 <hr>
-                <button type="submit">Update List</button>
+                <!-- <button type="submit">Update List</button> -->
             </form>
             {% if messages %}
             {% for message in messages %}

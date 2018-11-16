@@ -31,19 +31,12 @@
         <!-- <p>Click on the element below to open the side navigation menu, and push this content to the right.</p> -->
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Provost</span>
         <div class="container-fluid" id="content-areas">
-            <!-- Hello -->
-            <form action="" enctype="multipart/form-data" method="post">
+            <form method="POST" action="">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Initialize</button>
-                {% if messages %}
-                {% for message in messages %}
-                <script {% if message.tags %} class="{{ message.tags }}" {% endif %}>
-                    alert(' {{ message }} ')
-                </script>
-                {% endfor %}
-                {% endif %}
+                <button type="submit">Allot rooms</button>
+                <!-- <input type="button" value="Allot Rooms"> -->
             </form>
+            <!-- Hello -->
         </div>
     </div>
 

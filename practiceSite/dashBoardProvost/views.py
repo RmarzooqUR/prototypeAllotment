@@ -51,10 +51,13 @@ def modelFormUpload(request):
                         current_standing    = row[3],
                     )
                     
-                    # _, user = UserLogin(
-                    #     username = row[0],
-                    #     password = row[2],
-                    # )
+                    passs, user = UserLogin.objects.get_or_create(
+                        username = row[0],
+                        isStudent=True,
+                        # password = row[2],
+                    )
+                    passs.set_password(row[2])
+                    passs.save()
             return HttpResponseRedirect('')
         else:
             messages.info(
@@ -113,6 +116,8 @@ def InitializeHostelView(request):
                     hostel = hostelName,
                     seat_no = seat_num,
                     room_no = room_num,
+                    seater = seater,
+                    vacant = True,
                 )
                 seat_num = seat_num + 1
 
@@ -136,9 +141,48 @@ def InitializeHostelView(request):
         return render(request,'dashBoardProvost/InitializeHostelForm.html',{'form': form})
 
 
-             
-def allotRooms(request):
-    if request.method == 'POST':
-        for students in studentModel.objects.all():
-            print('hello')
+def AllotmentView(request):
 
+    if request.method == 'POST':
+        
+        for student in studentModel.objects.all():
+
+            standing = student.current_standing
+
+            if standing>=15:
+                
+                for room in roomModel.objects.all():
+                    if room.seater == 1 and room.vacant == True:
+                        room.student = student
+                        room.vacant = False
+                        room.save()
+                        # print('1')
+                        break
+
+            elif standing>=5:
+
+                for room in roomModel.objects.all():
+                    if room.seater == 2 and room.vacant == True:
+                        room.student = student
+                        room.vacant = False
+                        room.save()
+                        # print('2')
+                        break
+                
+            else :
+                for room in roomModel.objects.all():
+                    if room.seater == 4 and room.vacant == True:
+                        room.student = student
+                        room.vacant = False
+                        room.save()
+                        # print('3')
+                        break
+            student.current_standing+=5
+            student.save()
+        return HttpResponseRedirect('')
+    else:
+        return render(request,'dashBoardProvost/allotment.html',{})
+            
+               
+               
+            

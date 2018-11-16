@@ -22,9 +22,11 @@ class studentModel(models.Model):
 
 class roomModel(models.Model):
     hostel = models.CharField(max_length=120)
+    seater = models.IntegerField()
     room_no= models.IntegerField()
     seat_no = models.IntegerField()
     student = models.OneToOneField(studentModel, on_delete=models.CASCADE, null = True)
+    vacant = models.BooleanField()
     
 
 

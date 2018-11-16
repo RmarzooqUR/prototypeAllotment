@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {% load static %}
     <link rel="stylesheet" type="text/css" media="screen" href="{% static 'dashBoardProvost/styles.css' %}" />
     <!-- <script src="main.js"></script> -->
@@ -17,6 +20,7 @@
         <a href="{% url 'dashBoardProvost:provostIndex' %}">Profile</a>
         <a href="{% url 'dashBoardProvost:upload' %}">Upload CSV</a>
         <a href="{% url 'dashBoardProvost:InitializeHostelForm' %}">Initialize your hostels</a>
+        <a href="{% url 'dashBoardProvost:Allotment' %}">Allot Rooms</a>
         <!-- <a href="#">Update Profile</a> -->
         <a href="#">Grievances</a>
         <a href="#">Logout</a>
@@ -25,9 +29,25 @@
     <div id="main">
         <!-- <h2>Sidenav Push Example</h2> -->
         <!-- <p>Click on the element below to open the side navigation menu, and push this content to the right.</p> -->
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Provost</span>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Welcome Provost</span>
         <div class="container-fluid" id="content-areas">
-            <!-- Hello -->
+            <ul>
+                <li>Please make sure that the csv file is in the following format.
+                    <ul>
+                        <li>Enrollment No</li>
+                        <li>Name</li>
+                        <li>Faculty Number</li>
+                        <li>Standing</li>
+                    </ul>
+                </li>
+                <li>Please perform the allotment int the following sequence
+                    <ul>
+                        <li>Upload spreadsheet in csv format with file name as 'filename.csv'</li>
+                        <li>Initialize your hostels</li>
+                        <li>Allot the rooms</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 

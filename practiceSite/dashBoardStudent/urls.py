@@ -9,5 +9,5 @@ app_name='dashBoardStudent'
 urlpatterns=[
     path('login/', views.login_view, name='login_view'),
     path('logged_in/', views.logged_in, name='logged_in'),
-    path('', views.IndexView.as_view(), name='studentIndex')
+    # path('', views.index, name='studentIndex')
 ]

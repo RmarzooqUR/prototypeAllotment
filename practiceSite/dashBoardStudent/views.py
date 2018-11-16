@@ -5,6 +5,7 @@ from django.views import generic
 
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
+from dashBoardProvost.models import studentModel, roomModel
 #from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 
@@ -14,9 +15,6 @@ from django.contrib.auth.decorators import login_required
 class IndexView(generic.TemplateView):
     template_name = 'dashBoardStudent/dashboard.html'
 
-
-def index(request):
-    return render(request,"dashBoardStudent/index.html",{})
 
 def logged_in(request):
     return HttpResponse("SuccessFully logged in")
@@ -33,8 +31,22 @@ def login_view(request):
         if user:
             if user.is_active:
                 login(request,user)
+                
+                student = studentModel.objects.get(eNo=username)
+                room_data = roomModel.objects.get(student=student)
 
-                return HttpResponseRedirect('/dashBoardStudent/')
+
+
+                context = {
+                    'name': student.Name,
+                    'eNo' : student.eNo,
+                    'facNo': student.FacNo,
+                    'standing': student.current_standing,
+                    'room_no' : room_data.room_no,
+                    'hostelName':room_data.hostel,
+                    'seater':room_data.seater,
+                }
+                return render(request,'dashBoardStudent/dashboard.html',context)
             else:
                 return HttpResponse("Your account is not active")
         else:
@@ -42,3 +54,6 @@ def login_view(request):
     else:  
         return render(request, "dashBoardStudent/login.html", {}) 
 
+
+# def index(request):
+#     return render(request, "dashBoardStudent/dashboard.html", {})
